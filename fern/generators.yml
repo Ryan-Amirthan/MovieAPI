@@ -3,24 +3,27 @@ api:
   specs:
     - openapi: ../openapi.yml
 
-default-group: sdk
+default-group: ts-sdk
 groups:
-  sdk:
+  ts-sdk:
     generators:
       - name: fernapi/fern-typescript-node-sdk
         version: 1.0.0
         output:
           location: npm
-          package-name: tmdb
+          package-name: tmdb-ryanstep
           token: ${NPM_TOKEN}
         config: {}
-      - name: fernapi/fern-python-sdk
-        version: 4.20.3
-        output:
-          location: pypi
-          package-name: tmdb
-          token: ${PYPI_TOKEN}
-        config: {}
+
+  # python-sdk:
+  #   generators:
+  #     - name: fernapi/fern-python-sdk
+  #       version: 4.20.3
+  #       output:
+  #         location: pypi
+  #         package-name: tmdb
+  #         token: ${PYPI_TOKEN}
+  #       config: {}
 
   openapi:
     generators:
