@@ -15,15 +15,15 @@ groups:
           token: ${NPM_TOKEN}
         config: {}
 
-  # python-sdk:
-  #   generators:
-  #     - name: fernapi/fern-python-sdk
-  #       version: 4.20.3
-  #       output:
-  #         location: pypi
-  #         package-name: tmdb
-  #         token: ${PYPI_TOKEN}
-  #       config: {}
+  python-sdk:
+    generators:
+      - name: fernapi/fern-python-sdk
+        version: 4.20.3
+        output:
+          location: pypi
+          package-name: tmdb
+          token: ${PYPI_TOKEN}
+        config: {}
 
   openapi:
     generators:
