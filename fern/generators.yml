@@ -21,7 +21,7 @@ groups:
         version: 4.20.3
         output:
           location: pypi
-          package-name: tmdb
+          package-name: tmdb-ryanstep
           token: ${PYPI_TOKEN}
         config: {}
 
