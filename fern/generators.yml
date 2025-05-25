@@ -54,7 +54,7 @@ groups:
       - name: fernapi/fern-go-sdk
         version: 1.1.0
         config:
-          importPath: go-mod-path/generated/go
+          #importPath: go-mod-path/generated/go
         github:
           repository: Ryan-Amirthan/MovieAPI-GoSDK
   csharp-sdk:
@@ -79,3 +79,14 @@ groups:
         config: {}
         github:
           repository: Ryan-Amirthan/MovieAPI-RubySDK
+  php-sdk:
+    generators:
+      - name: fernapi/fern-php-sdk
+        version: 0.15.0
+        # output:
+        #   location: 
+        #   package-name: tmdb-ryanstep
+        #   token: ${PACKAGIST_TOKEN}
+        config: {}
+        github:
+          repository: Ryan-Amirthan/MovieAPI-PHPSDK
