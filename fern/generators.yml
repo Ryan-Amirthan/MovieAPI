@@ -32,7 +32,7 @@ groups:
         version: 2.36.4
         output:
           location: maven
-          coordinate: com.tmdb:tmdb-java
+          artifact: com.tmdb:tmdb-java
           username: ${MAVEN_USERNAME}
           password: ${MAVEN_PASSWORD}
           signature:
