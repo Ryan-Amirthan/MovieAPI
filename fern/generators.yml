@@ -2,7 +2,6 @@
 api:
   specs:
     - openapi: ../openapi.yml
-
 default-group: ts-sdk
 groups:
   ts-sdk:
@@ -14,7 +13,6 @@ groups:
           package-name: tmdb-ryanstep
           token: ${NPM_TOKEN}
         config: {}
-
   python-sdk:
     generators:
       - name: fernapi/fern-python-sdk
@@ -24,7 +22,20 @@ groups:
           package-name: tmdb-ryanstep
           token: ${PYPI_TOKEN}
         config: {}
-
+  java-sdk:
+    generators:
+      - name: fernapi/fern-java-sdk
+        version: 2.36.4
+        output:
+          location: maven
+          coordinate: com.tmdb:tmdb-java
+          username: ${MAVEN_USERNAME}
+          password: ${MAVEN_PASSWORD}
+          signature:
+            keyId: ${MAVEN_CENTRAL_SECRET_KEY_KEY_ID}
+            password: ${MAVEN_CENTRAL_SECRET_KEY_PASSWORD}
+            secretKey: ${MAVEN_CENTRAL_SECRET_KEY}
+        config: {}
   openapi:
     generators:
       - name: fernapi/fern-openapi
@@ -32,3 +43,4 @@ groups:
         github:
           repository: Ryan-Amirthan/openapi
         config: {}
+        
