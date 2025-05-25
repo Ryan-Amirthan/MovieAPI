@@ -1,0 +1,26 @@
+name: Publish CSharp SDK
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "The version of the CSharp spec that you would like to release"
+        required: true
+        type: string
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Fern CLI
+        run: npm install -g fern-api
+
+      - name: Release CSharp SDK
+        env:
+          FERN_TOKEN: ${{ secrets.FERN_TOKEN }}
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          fern generate --group csharp --version ${{ inputs.version }} --log-level debug

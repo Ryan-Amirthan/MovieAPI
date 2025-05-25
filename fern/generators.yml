@@ -31,8 +31,7 @@ groups:
       - name: fernapi/fern-java-sdk
         version: 2.36.4
         output:
-          location: maven #local-file-system
-          # path: ../sdks/java
+          location: maven
           coordinate: com.tmdb:tmdb-java
           username: ${MAVEN_USERNAME}
           password: ${MAVEN_PASSWORD}
@@ -50,4 +49,22 @@ groups:
         github:
           repository: Ryan-Amirthan/MovieAPI-OpenAPI
         config: {}
-        
+  go-sdk:
+    generators:
+      - name: fernapi/fern-go-sdk
+        version: 1.1.0
+        config:
+          importPath: go-mod-path/generated/go
+        github:
+          repository: Ryan-Amirthan/MovieAPI-GoSDK
+  csharp-sdk:
+    generators:
+      - name: fernapi/fern-csharp-sdk
+        version: 1.17.4
+        output:
+          location: nuget
+          package-name: Imdb.Net
+          api-key: ${NUGET_API_KEY}
+        github:
+          repository: Ryan-Amirthan/MovieAPI-CSharpSDK
+        config: {}
