@@ -12,6 +12,8 @@ groups:
           location: npm
           package-name: tmdb-ryanstep
           token: ${NPM_TOKEN}
+        github:
+          repository: Ryan-Amirthan/MovieAPI-TsSDK
         config: {}
   python-sdk:
     generators:
@@ -21,6 +23,8 @@ groups:
           location: pypi
           package-name: tmdb-ryanstep
           token: ${PYPI_TOKEN}
+        github:
+          repository: Ryan-Amirthan/MovieAPI-PythonSDK
         config: {}
   java-sdk:
     generators:
@@ -35,12 +39,14 @@ groups:
             keyId: ${MAVEN_CENTRAL_SECRET_KEY_KEY_ID}
             password: ${MAVEN_CENTRAL_SECRET_KEY_PASSWORD}
             secretKey: ${MAVEN_CENTRAL_SECRET_KEY}
+        github:
+          repository: Ryan-Amirthan/MovieAPI-JavaSDK
         config: {}
   openapi:
     generators:
       - name: fernapi/fern-openapi
         version: 0.1.7
         github:
-          repository: Ryan-Amirthan/openapi
+          repository: Ryan-Amirthan/MovieAPI-OpenAPI
         config: {}
         
