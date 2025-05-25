@@ -31,8 +31,9 @@ groups:
       - name: fernapi/fern-java-sdk
         version: 2.36.4
         output:
-          location: maven
-          artifact: com.tmdb:tmdb-java
+          location: maven #local-file-system
+          # path: ../sdks/java
+          coordinate: com.tmdb:tmdb-java
           username: ${MAVEN_USERNAME}
           password: ${MAVEN_PASSWORD}
           signature:
