@@ -63,8 +63,19 @@ groups:
         version: 1.17.4
         output:
           location: nuget
-          package-name: Imdb.Net
+          package-name: tmdb.Net
           api-key: ${NUGET_API_KEY}
         github:
           repository: Ryan-Amirthan/MovieAPI-CSharpSDK
         config: {}
+  ruby-sdk:
+    generators:
+      - name: fernapi/fern-ruby-sdk
+        version: 0.8.2
+        output:
+          location: rubygems
+          package-name: tmdb-ryanstep
+          api-key: ${RUBYGEMS_API_KEY}
+        config: {}
+        github:
+          repository: Ryan-Amirthan/MovieAPI-RubySDK
