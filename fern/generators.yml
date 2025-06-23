@@ -2,7 +2,7 @@
 api:
   specs:
     - openapi: ../openapi.yml
-      origin: https://api.prod.paradex.trade/swagger/doc.json
+      origin: https://api.vapi.ai/api-json
 default-group: java-sdk
 groups:
   ts-sdk:

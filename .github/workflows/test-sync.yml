@@ -5,17 +5,17 @@ on:                                              # additional custom triggers ca
     branches:
       - main                                     # on push to main
   schedule:
-    - cron: '*/2 * * * *'                         
+    - cron: '* 8 * * *'                         
 
 jobs:
   update-from-source:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v2.1
         with:
           token: ${{ secrets.OPENAPI_SYNC_TOKEN }}
       - name: Update API with Fern
-        uses: fern-api/sync-openapi@branch-name
+        uses: fern-api/sync-openapi@
         with:
           update_from_source: true
           token: ${{ secrets.OPENAPI_SYNC_TOKEN }}
