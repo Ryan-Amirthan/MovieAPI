@@ -2,7 +2,8 @@
 api:
   specs:
     - openapi: ../openapi.yml
-default-group: ts-sdk
+      origin: https://petstore3.swagger.io/api/v3/openapi.json
+default-group: java-sdk
 groups:
   ts-sdk:
     generators:

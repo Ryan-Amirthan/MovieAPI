@@ -1,0 +1,17 @@
+# .github/workflows/test-sync.yml
+name: Test Sync
+on:
+  schedule:
+    - cron: '*/3 * * * *'  # Every 3 minutes for testing
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: your-username/sync-openapi@branch-name
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: 'sync-fern-openapi'
+          update_from_source: true
