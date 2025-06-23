@@ -1,6 +1,12 @@
 name: Publish Ruby SDK
 
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "The version of the Ruby spec that you would like to release"
+        required: true
+        type: string
 
 jobs:
   release:
