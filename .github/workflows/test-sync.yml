@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: your-username/sync-openapi@branch-name
+      - uses: fern-api/sync-openapi@branch-name
         with:
           token: ${{ secrets.OPENAPI_SYNC_TOKEN }}
           branch: 'sync-fern-openapi'
