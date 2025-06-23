@@ -2,7 +2,7 @@
 api:
   specs:
     - openapi: ../openapi.yml
-      origin: https://petstore3.swagger.io/api/v3/openapi.json
+      origin: https://api.prod.paradex.trade/swagger/doc.json
 default-group: java-sdk
 groups:
   ts-sdk:
