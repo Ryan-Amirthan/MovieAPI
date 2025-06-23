@@ -11,11 +11,11 @@ jobs:
   update-from-source:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.1
+      - uses: actions/checkout@v2
         with:
           token: ${{ secrets.OPENAPI_SYNC_TOKEN }}
       - name: Update API with Fern
-        uses: fern-api/sync-openapi@
+        uses: fern-api/sync-openapi@2.1
         with:
           update_from_source: true
           token: ${{ secrets.OPENAPI_SYNC_TOKEN }}
