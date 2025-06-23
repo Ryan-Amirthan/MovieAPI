@@ -1,17 +1,24 @@
-# .github/workflows/test-sync.yml
-name: Test Sync
-on:
+name: Sync OpenAPI Specs # can be customized
+on:                                              # additional custom triggers can be configured, examples below
+  workflow_dispatch:                             # manual dispatch
+  push:                                          
+    branches:
+      - main                                     # on push to main
   schedule:
-    - cron: '*/3 * * * *'  # Every 3 minutes for testing
-  workflow_dispatch:
+    - cron: '*/2 * * * *'                         
 
 jobs:
-  test:
+  update-from-source:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: fern-api/sync-openapi@branch-name
         with:
           token: ${{ secrets.OPENAPI_SYNC_TOKEN }}
-          branch: 'sync-fern-openapi'
+      - name: Update API with Fern
+        uses: fern-api/sync-openapi@branch-name
+        with:
           update_from_source: true
+          token: ${{ secrets.OPENAPI_SYNC_TOKEN }}
+          branch: 'update-api'
+          auto_merge: false                        # you MUST use auto_merge: true with branch: main
+          add_timestamp: true
