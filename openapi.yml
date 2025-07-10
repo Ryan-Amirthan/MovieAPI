@@ -1649,6 +1649,48 @@
         }
       }
     },
+    "/orderbook/{market}/impact-price": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "Markets"
+        ],
+        "summary": "Get market impact price",
+        "operationId": "get-impact-price",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Market symbol - ex: BTC-USD-PERP",
+            "name": "market",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "integer",
+            "description": "Size",
+            "name": "size",
+            "in": "query",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/responses.ImpactPriceResp"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/responses.ApiError"
+            }
+          }
+        }
+      }
+    },
     "/orders": {
       "get": {
         "security": [
@@ -3326,6 +3368,10 @@
           "type": "string",
           "example": "BTC-USD-PERP"
         },
+        "recv_window": {
+          "description": "Order will be created if it is received by API within RecvWindow milliseconds from signature timestamp, minimum is 10 milliseconds",
+          "type": "integer"
+        },
         "side": {
           "description": "Algo order side",
           "allOf": [
@@ -3565,6 +3611,10 @@
         "signature_timestamp": {
           "description": "Timestamp of order creation, used for signature verification",
           "type": "integer"
+        },
+        "signed_impact_price": {
+          "description": "Optional signed impact price for market orders (base64 encoded)",
+          "type": "string"
         },
         "size": {
           "description": "Size of the order",
@@ -4043,6 +4093,26 @@
               "type": "string"
             }
           }
+        },
+        "best_ask_interactive": {
+          "description": "Size on the best ask from UI",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "example": [
+            "10.5"
+          ]
+        },
+        "best_bid_interactive": {
+          "description": "Size on the best bid from UI",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "example": [
+            "10.5"
+          ]
         },
         "bids": {
           "description": "List of Bid sizes and prices",
@@ -4723,6 +4793,35 @@
           "description": "Market Volga",
           "type": "string",
           "example": "0.2"
+        }
+      }
+    },
+    "responses.ImpactPriceResp": {
+      "type": "object",
+      "properties": {
+        "encoded": {
+          "description": "Opaque signed impact price for attaching to a market order",
+          "type": "string"
+        },
+        "impact_price": {
+          "description": "The calculated impact price",
+          "type": "string",
+          "example": "30130.15"
+        },
+        "market": {
+          "description": "Symbol of the market",
+          "type": "string",
+          "example": "BTC-USD-PERP"
+        },
+        "side": {
+          "description": "Trade side (BUY or SELL)",
+          "type": "string",
+          "example": "BUY"
+        },
+        "size": {
+          "description": "Size of the order",
+          "type": "string",
+          "example": "0.05"
         }
       }
     },
