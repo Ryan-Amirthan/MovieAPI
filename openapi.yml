@@ -13,7 +13,7 @@
     "description": "The following describe Paradex API.\n",
     "title": "Paradex REST API",
     "contact": {},
-    "version": "1.99.1"
+    "version": "1.99.2"
   },
   "host": "api.prod.paradex.trade",
   "basePath": "/v1",
@@ -4522,6 +4522,10 @@
         "discord": {
           "$ref": "#/definitions/responses.DiscordProfile"
         },
+        "is_twitter_follower": {
+          "type": "boolean",
+          "example": true
+        },
         "is_username_private": {
           "type": "boolean",
           "example": true
@@ -5454,7 +5458,8 @@
         "SOCIAL_USERNAME_IN_USE",
         "INVALID_OAUTH_REQUEST",
         "RPI_ACCOUNT_NOT_WHITELISTED",
-        "INVALID_MARKETING_CODE"
+        "INVALID_MARKETING_CODE",
+        "INVALID_JOIN_WAITLIST_REQUEST"
       ],
       "x-enum-comments": {
         "ErrorCodeString_SignerMismatch": "#nosec G101"
@@ -5526,7 +5531,8 @@
         "ErrorCodeString_SocialUsernameInUse",
         "ErrorCodeString_InvalidOAuthRequest",
         "ErrorCodeString_RPIAccountNotWhitelisted",
-        "ErrorCodeString_InvalidMarketingCode"
+        "ErrorCodeString_InvalidMarketingCode",
+        "ErrorCodeString_InvalidJoinWaitlistRequest"
       ]
     },
     "responses.ErrorResponse": {
