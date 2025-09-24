@@ -85,7 +85,8 @@
             "enum": [
               "pnl",
               "value",
-              "volume"
+              "volume",
+              "fee_savings"
             ],
             "type": "string",
             "description": "Type of data",
