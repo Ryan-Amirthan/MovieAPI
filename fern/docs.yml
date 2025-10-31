@@ -2,6 +2,8 @@ instances:
   - url: https://tmdb.docs.buildwithfern.com
 title: Tmdb | Documentation
 navigation:
+  - page: Sample
+    path: sample.mdx
   - api: API Reference
     paginated: true
 colors:
